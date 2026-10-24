@@ -1,0 +1,120 @@
+{
+  "name": "Project bibliography records as CSL YAML",
+  "gateway": "csl-yaml",
+  "gatewayPackageName": "@red-cup-engineering/csl-yaml-services-section",
+  "section": "lib/emsenn/services/561-group/services/engineering-services-section/services/computer-engineering-services-section/services/computer-data-engineering-services-section/services/computer-content-engineering-services-section/services/computer-serialized-content-engineering-services-section/services/yaml-services-section/services/csl-yaml-services-section",
+  "operation": "project-bibliography-records-as-csl-yaml",
+  "origin": "https://market.561.group",
+  "route": "/v1/project-bibliography-records-as-csl-yaml",
+  "method": "POST",
+  "price": "$0.005",
+  "category": "data",
+  "output": {
+    "schema": {
+      "type": "object",
+      "required": [
+        "text",
+        "count"
+      ],
+      "properties": {
+        "text": {
+          "type": "string"
+        },
+        "count": {
+          "type": "integer"
+        }
+      }
+    },
+    "example": {
+      "text": "references:\n  - id: arnold1995\n    type: article-journal\n    title: Remarks\n    author:\n      - family: Arnold\n        given: V. I.\n    container-title: Some Journal\n    issued:\n      date-parts:\n        - [1995]\n    DOI: 10.1/x\n  - id: cooper2017\n    type: book\n    title: Family Values\n    author:\n      - family: Cooper\n        given: Melinda\n    publisher: Zone Books\n    issued:\n      date-parts:\n        - [2017]\n",
+      "count": 2
+    }
+  },
+  "framings": [
+    {
+      "key": "default",
+      "title": "Project bibliography records as CSL YAML",
+      "description": "Project bibliography-engine records as Pandoc-compatible CSL YAML through the bibliography engine's own CSL projection: BibTeX-style reference types become CSL types, records sort by citekey, bytes are reproducible.",
+      "tags": [
+        "csl",
+        "yaml",
+        "bibliography",
+        "pandoc",
+        "citations"
+      ],
+      "serviceName": "project-bibliography-records"
+    }
+  ],
+  "ledgerAccount": "Income:Sales:X402:Csl-yaml",
+  "markets": [
+    "x402-bazaar",
+    "402index",
+    "house-capability-market",
+    "house-seller-catalog"
+  ],
+  "compute": {
+    "package": "@red-cup-engineering/csl-yaml-services-section",
+    "subpath": "./project-bibliography-records-as-csl-yaml",
+    "export": "projectBibliographyRecordsAsCslYaml",
+    "args": [
+      "body"
+    ]
+  },
+  "runtime": "edge",
+  "saleStatus": "held",
+  "bodyExample": {
+    "records": [
+      {
+        "type": "bibliography",
+        "key": "cooper2017",
+        "reference-type": "book",
+        "authors": [
+          "Melinda Cooper"
+        ],
+        "year": 2017,
+        "title": "Family Values",
+        "publisher": "Zone Books"
+      },
+      {
+        "type": "bibliography",
+        "key": "arnold1995",
+        "reference-type": "article",
+        "authors": [
+          "Arnold, V. I."
+        ],
+        "year": 1995,
+        "title": "Remarks",
+        "publication": "Some Journal",
+        "doi": "10.1/x"
+      }
+    ]
+  },
+  "bodySchema": {
+    "type": "object",
+    "properties": {
+      "records": {
+        "type": "array",
+        "maxItems": 5000,
+        "items": {
+          "type": "object"
+        },
+        "description": "Bibliography records: type bibliography, key, reference-type, authors, year, title, and optional publication, publisher, translator, url, doi, note, eprint."
+      },
+      "fence": {
+        "type": "boolean",
+        "description": "Wrap the YAML in --- and ... markers. Default false."
+      }
+    },
+    "required": [
+      "records"
+    ]
+  },
+  "seller": {
+    "enterprise": "engineering",
+    "entity": "561-group-llc",
+    "record": {
+      "path": "lib/emsenn/services/561-group/services/engineering-services-section/lib/agency/enterprises/engineering.json",
+      "sha256": "6af4ed9d1e4612b0383267e7ffe0ad028c52164ee3c5136110d434384a29c39f"
+    }
+  }
+}

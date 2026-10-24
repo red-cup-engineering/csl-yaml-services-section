@@ -1,0 +1,6 @@
+[
+  {"id":"zotero-book","type":"book","title":"The Cultural Politics of Emotion","author":[{"family":"Ahmed","given":"Sara"}],"publisher":"Edinburgh University Press","publisher-place":"Edinburgh","issued":{"date-parts":[[2004]]},"ISBN":"9780748618477","edition":"1"},
+  {"id":"chapter-1","type":"chapter","title":"Why: \"quoted\", colons & #hashes","author":[{"family":"van der Berg","given":"Jan","non-dropping-particle":"van der"}],"editor":[{"family":"Editor","given":"Ed"},{"literal":"The Collective"}],"container-title":"A Collection","page":"11-45","volume":"3","issued":{"date-parts":[[2019,5,17]]},"accessed":{"date-parts":[[2026,1,2]]},"URL":"https://example.org/a?b=c&d=e","DOI":"10.1234/abc.def","language":"fr","abstract":"First paragraph.\n\nSecond paragraph.","note":"  leading and trailing spaces  "},
+  {"id":"web-1","type":"webpage","title":"Unicode: café, 日本語, emoji 🙂","issued":{"literal":"circa 2020"},"URL":"https://example.org/","keyword":"yes","number":"007"},
+  {"id":"001","type":"report","title":"true","author":[{"family":"Null","given":"Nan"}],"issued":{"date-parts":[[1999]]},"publisher":"~","version":"1.10","volume":"12","custom":{"z":1,"a":[1,2,{"k":"v"}]}}
+]

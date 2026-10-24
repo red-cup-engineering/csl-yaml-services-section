@@ -1,0 +1,59 @@
+{
+  "name": "@red-cup-engineering/csl-yaml-services-section",
+  "version": "0.1.0",
+  "description": "CSL-YAML (Pandoc-compatible references: YAML) as the sibling codec of CSL-JSON: encodes CSL-JSON items as deterministic YAML, decodes YAML (or a citekey-map references: block) into validated CSL-JSON items, and projects bibliography-engine records as CSL YAML.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/red-cup-engineering/csl-yaml-services-section.git"
+  },
+  "type": "module",
+  "private": false,
+  "license": "MIT",
+  "exports": {
+    ".": "./scripts/index.mjs",
+    "./encode-csl-items-as-yaml": "./scripts/encode-csl-items-as-yaml.mjs",
+    "./decode-csl-yaml": "./scripts/decode-csl-yaml.mjs",
+    "./project-bibliography-records-as-csl-yaml": "./scripts/project-bibliography-records-as-csl-yaml.mjs"
+  },
+  "bin": {
+    "encode-csl-items-as-yaml": "scripts/encode-csl-items-as-yaml.mjs",
+    "decode-csl-yaml": "scripts/decode-csl-yaml.mjs",
+    "project-bibliography-records-as-csl-yaml": "scripts/project-bibliography-records-as-csl-yaml.mjs"
+  },
+  "files": [
+    "scripts",
+    "data",
+    "README.md",
+    "LICENSE",
+    "package.json"
+  ],
+  "dependencies": {
+    "@red-cup-engineering/bibliography-engineering-services-section": "0.6.0",
+    "@red-cup-engineering/csl-json-services-section": "0.2.2",
+    "@red-cup-engineering/javascript-node-services-section": "0.4.1",
+    "@red-cup-engineering/yaml-frontmatter-codec-service": "0.1.8"
+  },
+  "scripts": {
+    "check": "for file in scripts/*.mjs test/*.mjs; do node --check \"$file\" || exit; done",
+    "test": "node --test test/*.test.mjs",
+    "pack:dry-run": "npm pack --dry-run --ignore-scripts"
+  },
+  "keywords": [
+    "csl",
+    "csl-yaml",
+    "pandoc",
+    "bibliography",
+    "citation",
+    "yaml"
+  ],
+  "engines": {
+    "node": ">=24.2.0"
+  },
+  "funding": {
+    "type": "individual",
+    "url": "https://github.com/561-group/.github/blob/main/TIPS.md"
+  },
+  "devDependencies": {
+    "@red-cup-engineering/json-schema-services-section": "0.5.1"
+  }
+}

@@ -1,0 +1,133 @@
+{
+  "name": "Encode CSL items as YAML",
+  "gateway": "csl-yaml",
+  "gatewayPackageName": "@red-cup-engineering/csl-yaml-services-section",
+  "section": "lib/emsenn/services/561-group/services/engineering-services-section/services/computer-engineering-services-section/services/computer-data-engineering-services-section/services/computer-content-engineering-services-section/services/computer-serialized-content-engineering-services-section/services/yaml-services-section/services/csl-yaml-services-section",
+  "operation": "encode-csl-items-as-yaml",
+  "origin": "https://market.561.group",
+  "route": "/v1/encode-csl-items-as-yaml",
+  "method": "POST",
+  "price": "$0.002",
+  "category": "data",
+  "output": {
+    "schema": {
+      "type": "object",
+      "required": [
+        "text",
+        "count"
+      ],
+      "properties": {
+        "text": {
+          "type": "string"
+        },
+        "count": {
+          "type": "integer"
+        }
+      }
+    },
+    "example": {
+      "text": "references:\n  - id: arnold1995\n    type: article-journal\n    title: Remarks\n    author:\n      - family: Arnold\n        given: V. I.\n    container-title: Some Journal\n    issued:\n      date-parts:\n        - [1995]\n    DOI: 10.1/x\n  - id: keats1962\n    type: book\n    title: The Snowy Day\n    author:\n      - family: Keats\n        given: Ezra Jack\n    publisher: Viking Press\n    issued:\n      date-parts:\n        - [1962]\n",
+      "count": 2
+    }
+  },
+  "framings": [
+    {
+      "key": "default",
+      "title": "Encode CSL items as YAML",
+      "description": "Encode CSL-JSON items as Pandoc-compatible references: YAML. Items are validated (CSL type, names, dates, unique ids), sorted by id and written in one fixed key order, so the same items always give the same bytes; every item is proven to round-trip losslessly.",
+      "tags": [
+        "csl",
+        "yaml",
+        "pandoc",
+        "citations",
+        "bibliography"
+      ],
+      "serviceName": "encode-csl-items-as-yaml"
+    }
+  ],
+  "ledgerAccount": "Income:Sales:X402:Csl-yaml",
+  "markets": [
+    "x402-bazaar",
+    "402index",
+    "house-capability-market",
+    "house-seller-catalog"
+  ],
+  "compute": {
+    "package": "@red-cup-engineering/csl-yaml-services-section",
+    "subpath": "./encode-csl-items-as-yaml",
+    "export": "encodeCslItemsAsYaml",
+    "args": [
+      "body"
+    ]
+  },
+  "runtime": "edge",
+  "saleStatus": "held",
+  "bodyExample": {
+    "items": [
+      {
+        "id": "keats1962",
+        "type": "book",
+        "title": "The Snowy Day",
+        "author": [
+          {
+            "family": "Keats",
+            "given": "Ezra Jack"
+          }
+        ],
+        "issued": {
+          "date-parts": [
+            [
+              1962
+            ]
+          ]
+        },
+        "publisher": "Viking Press"
+      },
+      {
+        "id": "arnold1995",
+        "type": "article-journal",
+        "title": "Remarks",
+        "author": [
+          {
+            "family": "Arnold",
+            "given": "V. I."
+          }
+        ],
+        "issued": {
+          "date-parts": [
+            [
+              1995
+            ]
+          ]
+        },
+        "container-title": "Some Journal",
+        "DOI": "10.1/x"
+      }
+    ]
+  },
+  "bodySchema": {
+    "type": "object",
+    "properties": {
+      "items": {
+        "type": "array",
+        "maxItems": 5000,
+        "description": "CSL-JSON items (csl-data.json, CSL 1.0.2); each needs a unique string id and a CSL type."
+      },
+      "fence": {
+        "type": "boolean",
+        "description": "Wrap the YAML in --- and ... markers. Default false."
+      }
+    },
+    "required": [
+      "items"
+    ]
+  },
+  "seller": {
+    "enterprise": "engineering",
+    "entity": "561-group-llc",
+    "record": {
+      "path": "lib/emsenn/services/561-group/services/engineering-services-section/lib/agency/enterprises/engineering.json",
+      "sha256": "6af4ed9d1e4612b0383267e7ffe0ad028c52164ee3c5136110d434384a29c39f"
+    }
+  }
+}
