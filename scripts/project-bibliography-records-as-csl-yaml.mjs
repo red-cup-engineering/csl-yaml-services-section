@@ -17,6 +17,7 @@ export const operationDefinition = {
   },
   outputSchema: yamlOutputSchema,
 };
+export const operation = operationDefinition;
 
 /**
  * Projects bibliography records as CSL YAML. The CSL projection is the bibliography

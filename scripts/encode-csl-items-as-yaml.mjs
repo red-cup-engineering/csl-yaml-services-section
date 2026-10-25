@@ -16,6 +16,7 @@ export const operationDefinition = {
   },
   outputSchema: yamlOutputSchema,
 };
+export const operation = operationDefinition;
 
 /**
  * Encodes CSL-JSON items as a Pandoc `references:` YAML document.

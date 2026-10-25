@@ -26,6 +26,7 @@ export const operationDefinition = {
     },
   },
 };
+export const operation = operationDefinition;
 
 /**
  * Decodes CSL-YAML text to validated CSL-JSON items, in source order.
