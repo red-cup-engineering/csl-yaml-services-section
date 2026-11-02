@@ -7,6 +7,8 @@
 [![Tips welcome](https://img.shields.io/badge/tips-welcome-d4a017)](https://github.com/561-group/.github/blob/main/TIPS.md)
 <!-- 561-group-standards:badges:end -->
 
+CSL-YAML (Pandoc-compatible references: YAML) as the sibling codec of CSL-JSON: encodes CSL-JSON items as deterministic YAML, decodes YAML (or a citekey-map references: block) into validated CSL-JSON items, and projects bibliography-engine records as CSL YAML.
+
 CSL-YAML, the `references:` YAML that Pandoc reads as a bibliography, as the
 sibling codec of CSL-JSON
 ([`csl-json-services-section`](https://github.com/red-cup-engineering/csl-json-services-section)).
