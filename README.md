@@ -125,9 +125,9 @@ enterprise, gateway `csl-yaml`, ledger account `Income:Sales:X402:Csl-yaml`.
 Prices: `encode-csl-items-as-yaml` $0.002, `decode-csl-yaml` $0.002,
 `project-bibliography-records-as-csl-yaml` $0.005 (the bibliography precedent:
 `book-record` $0.002, `reference-check` $0.02). `test/fixtures/offer.schema.json`
-is a copy of the x402 package's `schemas/offer.schema.json` (red-cup-engineering/x402-services-section,
+is a copy of the x402 package's `schemas/offer.schema.json` (red-cup-engineering/x402-computer-networks-engineering-services-section,
 last changed at commit `e9067ecc61616e86800ce40a190d3875fcc1b0b7`). Set
-`X402_OFFER_MODULE=/path/to/x402-services-section/src/offer.mjs` to also run the
+`X402_OFFER_MODULE=/path/to/x402-computer-networks-engineering-services-section/src/offer.mjs` to also run the
 package's own `declareOffer` over each offer.
 
 ## Limitations
