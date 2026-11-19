@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "basis": "Pandoc references metadata, the house CSL item rules, and exact SignCell source evidence.",
+  "cases": [
+    {
+      "id": "CSL-YAML-REFUSAL",
+      "role": "source",
+      "kind": "refusal",
+      "claim": "The decoder refuses invalid references and applies the house item rules in strict mode.",
+      "file": "test/encode-decode.test.mjs",
+      "test": "decode refuses what it cannot validate, and strict adds the house item subset"
+    },
+    {
+      "id": "CSL-YAML-SOURCE-REPLAY",
+      "role": "consumer",
+      "kind": "example",
+      "claim": "The installed codec preserves original source evidence across BOMs, fences and CRLF while replaying the same bibliography.",
+      "file": "examples/references.test.mjs",
+      "test": "CSL YAML identifies the original bytes and the interpretation across fences"
+    }
+  ]
+}
