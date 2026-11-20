@@ -1,3 +1,4 @@
+import { compareText } from "@red-cup-engineering/semiotic-content-address-system";
 import { isRecord } from "@red-cup-engineering/signcell/values";
 // The CSL-YAML algebra shared by the three operations: canonical item form, the YAML
 // emission, and the lossless-round-trip witness. Pure: no filesystem, clock or network.
@@ -23,11 +24,11 @@ const NAME_KEYS = Object.freeze(["family", "given", "non-dropping-particle", "dr
 const DATE_KEYS = Object.freeze(["date-parts", "season", "circa", "literal", "raw"]);
 
 
-const codePointCompare = (a, b) => (a < b ? -1 : a > b ? 1 : 0);
+
 
 function orderedKeys(object, leading) {
   const present = Object.keys(object).filter((key) => object[key] !== undefined && object[key] !== null);
-  return [...leading.filter((key) => present.includes(key)), ...present.filter((key) => !leading.includes(key)).sort(codePointCompare)];
+  return [...leading.filter((key) => present.includes(key)), ...present.filter((key) => !leading.includes(key)).sort(compareText)];
 }
 
 function canonical(value, leading = []) {
@@ -91,7 +92,7 @@ export function canonicalCslItems(items) {
     else seen.set(item.id, index);
   });
   if (findings.length > 0) throw refuse("CSL items refused", findings);
-  return items.map(canonicalCslItem).sort((a, b) => codePointCompare(a.id, b.id));
+  return items.map(canonicalCslItem).sort((a, b) => compareText(a.id, b.id));
 }
 
 /**
