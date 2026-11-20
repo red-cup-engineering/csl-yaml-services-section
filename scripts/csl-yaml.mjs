@@ -1,3 +1,4 @@
+import { isRecord } from "@red-cup-engineering/signcell/values";
 // The CSL-YAML algebra shared by the three operations: canonical item form, the YAML
 // emission, and the lossless-round-trip witness. Pure: no filesystem, clock or network.
 import { decodeYaml, encodeYaml } from "@red-cup-engineering/yaml-engine";
@@ -21,7 +22,7 @@ export const NAME_VARIABLES = Object.freeze([
 const NAME_KEYS = Object.freeze(["family", "given", "non-dropping-particle", "dropping-particle", "suffix", "literal", "comma-suffix", "static-ordering", "parse-names"]);
 const DATE_KEYS = Object.freeze(["date-parts", "season", "circa", "literal", "raw"]);
 
-const isRecord = (value) => value !== null && typeof value === "object" && !Array.isArray(value);
+
 const codePointCompare = (a, b) => (a < b ? -1 : a > b ? 1 : 0);
 
 function orderedKeys(object, leading) {
