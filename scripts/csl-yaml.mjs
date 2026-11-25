@@ -31,16 +31,16 @@ function orderedKeys(object, leading) {
   return [...leading.filter((key) => present.includes(key)), ...present.filter((key) => !leading.includes(key)).sort(compareText)];
 }
 
-function canonical(value, leading = []) {
-  if (Array.isArray(value)) return value.filter((entry) => entry !== undefined && entry !== null).map((entry) => canonical(entry));
+function cslKeyOrdered(value, leading = []) {
+  if (Array.isArray(value)) return value.filter((entry) => entry !== undefined && entry !== null).map((entry) => cslKeyOrdered(entry));
   if (!isRecord(value)) return value;
   const leadingKeys = leading.length > 0 ? leading : "family" in value || "literal" in value ? NAME_KEYS : "date-parts" in value ? DATE_KEYS : [];
-  return Object.fromEntries(orderedKeys(value, leadingKeys).map((key) => [key, canonical(value[key])]));
+  return Object.fromEntries(orderedKeys(value, leadingKeys).map((key) => [key, cslKeyOrdered(value[key])]));
 }
 
 /** One item in the deterministic CSL-YAML key order, `null`/`undefined` values dropped. */
 export function canonicalCslItem(item) {
-  return canonical(item, LEADING_VARIABLES);
+  return cslKeyOrdered(item, LEADING_VARIABLES);
 }
 
 function checkJson(value, path, findings) {
